@@ -42,8 +42,8 @@
         .equipo-container {
             width: 100%;
             max-width: 500px;
-            margin-bottom: 15px;
-            border-radius: 20px;
+            margin-bottom: 20px;
+            border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
@@ -55,48 +55,33 @@
             object-fit: cover;
         }
 
+        /* Contenedor del Logo debajo de la foto del equipo */
+        .header-logo-container {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(230, 57, 110, 0.15);
+        }
+
+        .header-logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         header p {
             font-size: 1.1rem;
             color: var(--dark-pink);
             margin: 0;
-            letter-spacing: 0.8px;
-            font-weight: 600;
+            letter-spacing: 1px;
+            font-weight: 700;
             text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
-        /* --- NUEVO: Botones para Ventanas Flotantes --- */
-        .floating-triggers {
-            display: flex;
-            gap: 15px;
-            width: 92%;
-            max-width: 550px;
-            margin: 15px 0 20px 0;
-        }
-
-        .trigger-btn {
-            flex: 1;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--soft-pink);
-            border-radius: 15px;
-            font-weight: 700;
-            color: var(--dark-pink);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(230, 57, 110, 0.05);
-            transition: all 0.2s ease;
-        }
-
-        .trigger-btn:hover {
-            background: var(--light-bg);
-            transform: translateY(-2px);
-        }
-
-        /* --- NUEVO: Estilos de Ventanas Modales --- */
+        /* --- Ventana Flotante de Momentos (Modal) --- */
         .modal {
             display: none; 
             position: fixed;
@@ -141,7 +126,7 @@
         .close-btn {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--text-muted);
             cursor: pointer;
         }
@@ -172,7 +157,8 @@
         .menu-container {
             width: 92%;
             max-width: 550px;
-            margin-bottom: 120px;
+            margin-top: 15px;
+            margin-bottom: 160px; /* Más espacio para que no tape las dos barras fijas */
         }
 
         .categoria-card {
@@ -270,19 +256,21 @@
             color: #fff;
         }
 
-        .action-bar {
+        /* --- NUEVO: Sistema de Barras Flotantes Inferiores Duplicadas --- */
+        .action-bar-container {
             position: fixed;
-            bottom: 25px;
+            bottom: 20px;
             display: flex;
+            flex-direction: column;
+            gap: 10px;
             width: 92%;
             max-width: 520px;
-            justify-content: center;
             z-index: 100;
         }
 
         .btn {
             width: 100%;
-            padding: 16px 20px;
+            padding: 14px 20px;
             border-radius: 18px;
             text-align: center;
             text-decoration: none;
@@ -295,8 +283,17 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.2s ease;
-            box-shadow: 0 8px 25px rgba(230, 57, 110, 0.25);
+            box-shadow: 0 6px 20px rgba(230, 57, 110, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-instagram {
             background: #e6396e;
+        }
+
+        .btn-momentos {
+            background: #b81d4c;
         }
 
         .btn:active {
@@ -306,52 +303,34 @@
         @media (max-width: 480px) {
             .equipo-container { max-width: 100%; }
             .producto-nombre, .producto-precio { font-size: 1.05rem; }
-            header p { font-size: 0.95rem; }
+            header p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
+        <!-- Imagen del Equipo de Trabajo arriba -->
         <div class="equipo-container">
             <img src="Equipo de trabajo .jpg" alt="Nuestro Equipo de Trabajo">
         </div>
+        
+        <!-- NUEVO: Tu logo principal integrado abajo de la foto -->
+        <div class="header-logo-container">
+            <img src="Logo.jpg" alt="Renacer Logo">
+        </div>
+        
+        <!-- Eslogan corporativo -->
         <p>sabores que mantienen tu energía</p>
     </header>
 
-    <!-- NUEVO: Disparadores de Ventanas Flotantes -->
-    <div class="floating-triggers">
-        <button class="trigger-btn" onclick="openModal('modal-insta')">📸 Ver Instagram</button>
-        <button class="trigger-btn" onclick="openModal('modal-momentos')">✨ Ver Momentos</button>
-    </div>
-
-    <!-- NUEVA: Ventana Flotante de Instagram -->
-    <div id="modal-insta" class="modal" onclick="closeModalOnBackdrop(event, 'modal-insta')">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Instagram Feed</h3>
-                <button class="close-btn" onclick="closeModal('modal-insta')">&times;</button>
-            </div>
-            <div class="grid-momentos">
-                <img src="Momentos 1.jpg" alt="Post 1">
-                <img src="Momentos 2.jpg" alt="Post 2">
-                <img src="Momentos 3.jpg" alt="Post 3">
-                <img src="Momentos 4.jpg" alt="Post 4">
-            </div>
-            <div style="margin-top: 15px; text-align: center;">
-                <a href="https://instagram.com/renacer.drinks" target="_blank" style="color: var(--primary-pink); font-weight: bold; text-decoration: none;">Ir al perfil oficial →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- NUEVA: Ventana Flotante de Momentos -->
+    <!-- Ventana Emergente Oculta de Momentos -->
     <div id="modal-momentos" class="modal" onclick="closeModalOnBackdrop(event, 'modal-momentos')">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Nuestros Momentos</h3>
                 <button class="close-btn" onclick="closeModal('modal-momentos')">&times;</button>
             </div>
-            <!-- Aquí cargan tus fotos llamadas Momentos tal cual están en tu GitHub -->
             <div class="grid-momentos">
                 <img src="Momentos 1.jpg" alt="Momento 1">
                 <img src="Momentos 2.jpg" alt="Momento 2">
@@ -372,14 +351,21 @@
         </div>
     </div>
 
-    <div class="action-bar">
-        <a href="https://instagram.com/renacer.drinks" target="_blank" class="btn">
+    <!-- Contenedor con las Dos Barras de Acciones Fijas Inferiores -->
+    <div class="action-bar-container">
+        <!-- Botón Flotante para abrir la ventana de Momentos -->
+        <button class="btn btn-momentos" onclick="openModal('modal-momentos')">
+            ✨ Ver Nuestros Momentos
+        </button>
+        
+        <!-- Botón Flotante para ir a Instagram -->
+        <a href="https://instagram.com/renacer.drinks" target="_blank" class="btn btn-instagram">
             📸 Síguenos en Instagram
         </a>
     </div>
 
     <script>
-        // Funciones para controlar las Ventanas Flotantes (Modales)
+        // Funciones para abrir y cerrar la ventana flotante de Momentos
         function openModal(id) {
             document.getElementById(id).style.display = 'flex';
         }
@@ -392,7 +378,7 @@
             }
         }
 
-        // Carga dinámica del menú desde menu.json
+        // Script de carga dinámica del menú
         fetch('menu.json')
             .then(response => response.json())
             .then(data => {
@@ -429,7 +415,7 @@
                 document.getElementById('dinamic-menu').innerHTML = 
                     `<div class="categoria-card" style="text-align:center; color:red;">
                         <h3>¡Ups! Hubo un problema al cargar los precios.</h3>
-                        <p>Por favor, verifica que tu archivo en GitHub se llame 'menu.json' exactamente en minúsculas.</p>
+                        <p>Por favor, verifica que tu archivo en GitHub se llame 'menu.json' en minúsculas.</p>
                      </div>`;
                 console.error('Error:', error);
             });
