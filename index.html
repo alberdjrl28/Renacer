@@ -1,169 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renacer - Menú</title>
-    <style>
-        :root {
-            --primary-pink: #e6396e;
-            --dark-pink: #b81d4c;
-            --light-bg: #fff5f7;
-            --text-dark: #333;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(to bottom, #ff9ebb, #fff5f7);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .header-box {
-            text-align: center;
-            padding: 40px 20px 20px 20px;
-            color: white;
-            width: 90%;
-            max-width: 500px;
-        }
-        .header-box h1 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: bold;
-        }
-        .header-box p {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin: 5px 0 0 0;
-        }
-        .menu-card {
-            background: white;
-            border-radius: 24px;
-            width: 90%;
-            max-width: 500px;
-            padding: 25px 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-bottom: 100px;
-            box-sizing: border-box;
-        }
-        .categoria-bloque {
-            margin-bottom: 30px;
-        }
-        .categoria-titulo {
-            color: white;
-            background: var(--primary-pink);
-            padding: 6px 16px;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .item-producto {
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #ffd1dc;
-            padding-bottom: 10px;
-        }
-        .item-producto:last-child {
-            border-bottom: none;
-        }
-        .item-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .item-nombre { color: #222; }
-        .item-precio { color: var(--dark-pink); }
-        .item-desc {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 4px;
-            font-weight: normal;
-        }
-        .botones-flotantes {
-            position: fixed;
-            bottom: 20px;
-            display: flex;
-            gap: 15px;
-            width: 90%;
-            max-width: 500px;
-            justify-content: center;
-            z-index: 100;
-        }
-        .btn {
-            flex: 1;
-            padding: 14px;
-            border-radius: 14px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(230, 57, 110, 0.3);
-            font-size: 0.95rem;
-        }
-        .btn-insta { background-color: #e6396e; }
-        .btn-wha { background-color: #e6396e; }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Renacer | Drinks & Coffee</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <div class="header-box">
-        <h1>Renacer</h1>
-        <p>Drinks & Coffee • Sabores que mantienen tu energía</p>
-    </div>
+<header>
 
-    <div class="menu-card" id="lista-menu">
-        <!-- Los productos aparecerán mágicamente aquí -->
-        <p style="text-align:center; color:#999;">Cargando menú...</p>
-    </div>
+<nav>
 
-    <div class="botones-flotantes">
-        <a href="https://instagram.com/renacer.drinks" target="_blank" class="btn btn-insta">Instagram</a>
-        <a href="https://wa.me/tu-numero-aqui" target="_blank" class="btn btn-wha">Pedir por WhatsApp</a>
-    </div>
+<h1>RENACER</h1>
 
-    <script>
-        // Esta función lee el archivo menu.json y lo dibuja en pantalla
-        fetch('menu.json')
-            .then(res => res.json())
-            .then(data => {
-                const contenedor = document.getElementById('lista-menu');
-                contenedor.innerHTML = ''; // Limpiar mensaje de carga
-                
-                data.categorias.forEach(cat => {
-                    let bloqueHTML = `
-                        <div class="categoria-bloque">
-                            <h2 class="categoria-titulo">${cat.nombre}</h2>
-                    `;
-                    
-                    cat.productos.forEach(prod => {
-                        bloqueHTML += `
-                            <div class="item-producto">
-                                <div class="item-top">
-                                    <span class="item-nombre">${prod.nombre}</span>
-                                    <span class="item-precio">$${prod.precio}</span>
-                                </div>
-                                ${prod.descripcion ? `<div class="item-desc">${prod.descripcion}</div>` : ''}
-                            </div>
-                        `;
-                    });
-                    
-                    bloqueHTML += `</div>`;
-                    contenedor.innerHTML += bloqueHTML;
-                });
-            })
-            .catch(err => {
-                document.getElementById('lista-menu').innerHTML = 
-                    `<p style="color:red; text-align:center;">Error al cargar el menú. Asegúrate de que el archivo se llame 'menu.json' en minúsculas.</p>`;
-                console.error(err);
-            });
-    </script>
+<ul>
+
+<li><a href="#especiales">Especiales</a></li>
+
+<li><a href="#refrescantes">Refrescantes</a></li>
+
+<li><a href="#vitalidad">Vitalidad</a></li>
+
+<li><a href="#merengadas">Merengadas</a></li>
+
+<li><a href="#cafe">Café</a></li>
+
+<li><a href="#varios">Varios</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h2>Sabores que mantienen tu energia</h2>
+
+<p>Batidos • Café • Energía Natural</p>
+
+<a href="#especiales" class="btn">
+Ver Menú
+</a>
+
+</section>
+
+</header>
+
+<main>
+
+<section id="especiales">
+
+<h2>⭐ Especiales</h2>
+
+<div class="cards">
+
+</div>
+
+</section>
+
+<section id="refrescantes">
+
+<h2>🍍 Refrescantes</h2>
+
+<div class="cards">
+
+</div>
+
+</section>
+
+<section id="vitalidad">
+
+<h2>💚 Vitalidad</h2>
+
+<div class="cards">
+
+</div>
+
+</section>
+
+<section id="merengadas">
+
+<h2>🍓 Merengadas</h2>
+
+<div class="cards">
+
+</div>
+
+</section>
+
+<section id="cafe">
+
+<h2>☕ El Despertar</h2>
+
+<div class="cards">
+
+</div>
+
+</section>
+
+<section id="varios">
+
+<h2>🥣 Varios</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Granola</h3>
+<p>$0.60</p>
+</div>
+
+<div class="card">
+<h3>Yogurt</h3>
+<p>$2.50</p>
+</div>
+
+<div class="card">
+<h3>Soda</h3>
+<p>$1.50</p>
+</div>
+
+<div class="card">
+<h3>Gatorade</h3>
+<p>$2.00</p>
+</div>
+
+<div class="card">
+<h3>Energizante</h3>
+<p>$1.00</p>
+</div>
+
+<div class="card">
+<h3>Agua saborizada</h3>
+<p>$1.20</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© 2026 Renacer
+
+</p>
+
+</footer>
+
+<script src="js/script.js"></script>
+
 </body>
+
 </html>
