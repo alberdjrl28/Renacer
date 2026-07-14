@@ -1,167 +1,283 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renacer - Menú Digital</title>
+    <style>
+        :root {
+            --primary-pink: #e6396e;
+            --dark-pink: #b81d4c;
+            --soft-pink: #ffd1dc;
+            --light-bg: #fff5f7;
+            --text-dark: #2d2d2d;
+            --text-muted: #666666;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb3c6 0%, #fff5f7 40%, #ffffff 100%);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
 
-<title>Renacer | Drinks & Coffee</title>
+        /* Cabecera con Logo y Eslogan */
+        header {
+            text-align: center;
+            padding: 40px 20px 25px 20px;
+            width: 100%;
+            max-width: 550px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        /* Caja contenedora del logo para mantenerlo centrado y estético */
+        .logo-container {
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 5px;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        header p {
+            font-size: 1rem;
+            color: var(--dark-pink);
+            margin: 0;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            font-style: italic;
+        }
 
+        /* Contenedor Principal del Menú */
+        .menu-container {
+            width: 92%;
+            max-width: 550px;
+            margin-bottom: 120px;
+        }
+
+        /* Tarjeta de Categoría */
+        .categoria-card {
+            background: rgba(255, 255, 255, 0.92);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 25px 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(230, 57, 110, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .categoria-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .categoria-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .categoria-titulo {
+            color: var(--dark-pink);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .decoracion-icono {
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+        }
+
+        /* Estilo de los Productos */
+        .producto-item {
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .producto-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .producto-fila {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .producto-nombre {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .producto-puntos {
+            flex-grow: 1;
+            border-bottom: 1px dotted var(--soft-pink);
+            position: relative;
+            top: -4px;
+        }
+
+        .producto-precio {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            white-space: nowrap;
+        }
+
+        .producto-descripcion {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            line-height: 1.4;
+            max-width: 90%;
+        }
+
+        /* Banner de Proteína Extra */
+        .info-banner {
+            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+            color: white;
+            border-radius: 18px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(230, 57, 110, 0.2);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .info-banner strong {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        /* Barra de Botón Flotante Inferior Único (Instagram) */
+        .action-bar {
+            position: fixed;
+            bottom: 25px;
+            display: flex;
+            width: 92%;
+            max-width: 520px;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 18px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 25px rgba(230, 57, 110, 0.25);
+            background: #e6396e;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        @media (max-width: 480px) {
+            .logo-container { max-width: 230px; }
+            .producto-nombre, .producto-precio { font-size: 1.05rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
+    <header>
+        <div class="logo-container">
+            <img src="IMG_2676.png" alt="Renacer Drinks & Coffee">
+        </div>
+        <p>sabores que mantienen tu energía</p>
+    </header>
 
-<nav>
+    <div class="menu-container">
+        
+        <div class="info-banner">
+            ✨ Puedes añadir <strong>35g extra de proteína</strong> por solo <strong>$0.50</strong> ✨
+        </div>
 
-<h1>RENACER</h1>
+        <div id="dinamic-menu">
+            <p style="text-align:center; color: var(--dark-pink); font-weight:500;">Cargando exquisito menú...</p>
+        </div>
 
-<ul>
+    </div>
 
-<li><a href="#especiales">Especiales</a></li>
+    <div class="action-bar">
+        <a href="https://instagram.com/renacer.drinks" target="_blank" class="btn">
+            📸 Síguenos en Instagram
+        </a>
+    </div>
 
-<li><a href="#refrescantes">Refrescantes</a></li>
-
-<li><a href="#vitalidad">Vitalidad</a></li>
-
-<li><a href="#merengadas">Merengadas</a></li>
-
-<li><a href="#cafe">Café</a></li>
-
-<li><a href="#varios">Varios</a></li>
-
-</ul>
-
-</nav>
-
-<section class="hero">
-
-<h2>Sabores que mantienen tu energia</h2>
-
-<p>Batidos • Café • Energía Natural</p>
-
-<a href="#especiales" class="btn">
-Ver Menú
-</a>
-
-</section>
-
-</header>
-
-<main>
-
-<section id="especiales">
-
-<h2>⭐ Especiales</h2>
-
-<div class="cards">
-
-</div>
-
-</section>
-
-<section id="refrescantes">
-
-<h2>🍍 Refrescantes</h2>
-
-<div class="cards">
-
-</div>
-
-</section>
-
-<section id="vitalidad">
-
-<h2>💚 Vitalidad</h2>
-
-<div class="cards">
-
-</div>
-
-</section>
-
-<section id="merengadas">
-
-<h2>🍓 Merengadas</h2>
-
-<div class="cards">
-
-</div>
-
-</section>
-
-<section id="cafe">
-
-<h2>☕ El Despertar</h2>
-
-<div class="cards">
-
-</div>
-
-</section>
-
-<section id="varios">
-
-<h2>🥣 Varios</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Granola</h3>
-<p>$0.60</p>
-</div>
-
-<div class="card">
-<h3>Yogurt</h3>
-<p>$2.50</p>
-</div>
-
-<div class="card">
-<h3>Soda</h3>
-<p>$1.50</p>
-</div>
-
-<div class="card">
-<h3>Gatorade</h3>
-<p>$2.00</p>
-</div>
-
-<div class="card">
-<h3>Energizante</h3>
-<p>$1.00</p>
-</div>
-
-<div class="card">
-<h3>Agua saborizada</h3>
-<p>$1.20</p>
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-
-<p>
-
-© 2026 Renacer
-
-</p>
-
-</footer>
-
-<script src="js/script.js"></script>
-
+    <script>
+        fetch('menu.json')
+            .then(response => response.json())
+            .then(data => {
+                const menuDiv = document.getElementById('dinamic-menu');
+                menuDiv.innerHTML = '';
+                
+                data.categorias.forEach(cat => {
+                    let cardHTML = `
+                        <div class="categoria-card">
+                            <div class="categoria-header">
+                                <span class="decoracion-icono">🌿</span>
+                                <h2 class="categoria-titulo">${cat.nombre}</h2>
+                            </div>
+                    `;
+                    
+                    cat.productos.forEach(prod => {
+                        cardHTML += `
+                            <div class="producto-item">
+                                <div class="producto-fila">
+                                    <span class="producto-nombre">${prod.nombre}</span>
+                                    <div class="producto-puntos"></div>
+                                    <span class="producto-precio">$${parseFloat(prod.precio).toFixed(2)}</span>
+                                </div>
+                                ${prod.descripcion ? `<div class="producto-descripcion">${prod.descripcion}</div>` : ''}
+                            </div>
+                        `;
+                    });
+                    
+                    cardHTML += `</div>`;
+                    menuDiv.innerHTML += cardHTML;
+                });
+            })
+            .catch(error => {
+                document.getElementById('dinamic-menu').innerHTML = 
+                    `<div class="categoria-card" style="text-align:center; color:red;">
+                        <h3>¡Ups! Hubo un problema al cargar los precios.</h3>
+                        <p>Por favor, verifica que tu archivo en GitHub se llame 'menu.json' exactamente en minúsculas.</p>
+                     </div>`;
+                console.error('Error:', error);
+            });
+    </script>
 </body>
-
 </html>
