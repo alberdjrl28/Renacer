@@ -16,7 +16,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #ffb3c6 0%, #fff5f7 40%, #ffffff 100%);
+            background: linear-gradient(rgba(255, 245, 247, 0.88), rgba(255, 255, 255, 0.92)), url('Logo.jpg') no-repeat center center fixed;
+            background-size: contain;
             color: var(--text-dark);
             margin: 0;
             padding: 0;
@@ -27,10 +28,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Cabecera con Logo y Eslogan */
         header {
             text-align: center;
-            padding: 40px 20px 25px 20px;
+            padding: 30px 20px 10px 20px;
             width: 100%;
             max-width: 550px;
             box-sizing: border-box;
@@ -39,50 +39,152 @@
             align-items: center;
         }
 
-        /* Caja contenedora del logo para mantenerlo centrado y estético */
-        .logo-container {
+        .equipo-container {
             width: 100%;
-            max-width: 280px;
-            margin-bottom: 5px;
+            max-width: 500px;
+            margin-bottom: 15px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .logo-container img {
+        .equipo-container img {
             width: 100%;
             height: auto;
             display: block;
+            object-fit: cover;
         }
 
         header p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--dark-pink);
             margin: 0;
-            letter-spacing: 0.5px;
-            font-weight: 500;
-            font-style: italic;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
-        /* Contenedor Principal del Menú */
+        /* --- NUEVO: Botones para Ventanas Flotantes --- */
+        .floating-triggers {
+            display: flex;
+            gap: 15px;
+            width: 92%;
+            max-width: 550px;
+            margin: 15px 0 20px 0;
+        }
+
+        .trigger-btn {
+            flex: 1;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--soft-pink);
+            border-radius: 15px;
+            font-weight: 700;
+            color: var(--dark-pink);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(230, 57, 110, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .trigger-btn:hover {
+            background: var(--light-bg);
+            transform: translateY(-2px);
+        }
+
+        /* --- NUEVO: Estilos de Ventanas Modales --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeIn 0.3s ease;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: var(--dark-pink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .grid-momentos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .grid-momentos img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        @keyframes fadeIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Contenedor Principal del Menú --- */
         .menu-container {
             width: 92%;
             max-width: 550px;
             margin-bottom: 120px;
         }
 
-        /* Tarjeta de Categoría */
         .categoria-card {
-            background: rgba(255, 255, 255, 0.92);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.94);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
             border-radius: 24px;
             padding: 25px 22px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(230, 57, 110, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(230, 57, 110, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             transition: transform 0.2s ease;
-        }
-
-        .categoria-card:hover {
-            transform: translateY(-2px);
         }
 
         .categoria-header {
@@ -108,7 +210,6 @@
             font-size: 1.2rem;
         }
 
-        /* Estilo de los Productos */
         .producto-item {
             margin-bottom: 20px;
             padding-bottom: 5px;
@@ -153,7 +254,6 @@
             max-width: 90%;
         }
 
-        /* Banner de Proteína Extra */
         .info-banner {
             background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
             color: white;
@@ -170,7 +270,6 @@
             color: #fff;
         }
 
-        /* Barra de Botón Flotante Inferior Único (Instagram) */
         .action-bar {
             position: fixed;
             bottom: 25px;
@@ -205,22 +304,65 @@
         }
 
         @media (max-width: 480px) {
-            .logo-container { max-width: 230px; }
+            .equipo-container { max-width: 100%; }
             .producto-nombre, .producto-precio { font-size: 1.05rem; }
+            header p { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="IMG_2676.png" alt="Renacer Drinks & Coffee">
+        <div class="equipo-container">
+            <img src="Equipo de trabajo .jpg" alt="Nuestro Equipo de Trabajo">
         </div>
         <p>sabores que mantienen tu energía</p>
     </header>
 
+    <!-- NUEVO: Disparadores de Ventanas Flotantes -->
+    <div class="floating-triggers">
+        <button class="trigger-btn" onclick="openModal('modal-insta')">📸 Ver Instagram</button>
+        <button class="trigger-btn" onclick="openModal('modal-momentos')">✨ Ver Momentos</button>
+    </div>
+
+    <!-- NUEVA: Ventana Flotante de Instagram -->
+    <div id="modal-insta" class="modal" onclick="closeModalOnBackdrop(event, 'modal-insta')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Instagram Feed</h3>
+                <button class="close-btn" onclick="closeModal('modal-insta')">&times;</button>
+            </div>
+            <div class="grid-momentos">
+                <img src="Momentos 1.jpg" alt="Post 1">
+                <img src="Momentos 2.jpg" alt="Post 2">
+                <img src="Momentos 3.jpg" alt="Post 3">
+                <img src="Momentos 4.jpg" alt="Post 4">
+            </div>
+            <div style="margin-top: 15px; text-align: center;">
+                <a href="https://instagram.com/renacer.drinks" target="_blank" style="color: var(--primary-pink); font-weight: bold; text-decoration: none;">Ir al perfil oficial →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NUEVA: Ventana Flotante de Momentos -->
+    <div id="modal-momentos" class="modal" onclick="closeModalOnBackdrop(event, 'modal-momentos')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nuestros Momentos</h3>
+                <button class="close-btn" onclick="closeModal('modal-momentos')">&times;</button>
+            </div>
+            <!-- Aquí cargan tus fotos llamadas Momentos tal cual están en tu GitHub -->
+            <div class="grid-momentos">
+                <img src="Momentos 1.jpg" alt="Momento 1">
+                <img src="Momentos 2.jpg" alt="Momento 2">
+                <img src="Momentos 3.jpg" alt="Momento 3">
+                <img src="Momentos 4.jpg" alt="Momento 4">
+                <img src="Momentos 5.jpg" alt="Momento 5">
+            </div>
+        </div>
+    </div>
+
     <div class="menu-container">
-        
         <div class="info-banner">
             ✨ Puedes añadir <strong>35g extra de proteína</strong> por solo <strong>$0.50</strong> ✨
         </div>
@@ -228,7 +370,6 @@
         <div id="dinamic-menu">
             <p style="text-align:center; color: var(--dark-pink); font-weight:500;">Cargando exquisito menú...</p>
         </div>
-
     </div>
 
     <div class="action-bar">
@@ -238,6 +379,20 @@
     </div>
 
     <script>
+        // Funciones para controlar las Ventanas Flotantes (Modales)
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        function closeModalOnBackdrop(event, id) {
+            if (event.target === document.getElementById(id)) {
+                closeModal(id);
+            }
+        }
+
+        // Carga dinámica del menú desde menu.json
         fetch('menu.json')
             .then(response => response.json())
             .then(data => {
