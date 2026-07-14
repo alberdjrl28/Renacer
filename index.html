@@ -7,13 +7,11 @@
     <style>
         :root {
             --primary-pink: #e6396e;
-            --dark-pink: #b81d4c;
+            --dark-pink: #b81d4c; /* Color corporativo del logo */
             --soft-pink: #ffd1dc;
             --light-bg: #fff5f7;
             --text-dark: #2d2d2d;
             --text-muted: #666666;
-            /* Nuevo tono Rosa Claro para los títulos del menú */
-            --menu-pink-light: #ff8fa3; 
         }
 
         body {
@@ -57,7 +55,7 @@
             object-fit: cover;
         }
 
-        /* --- NUEVO: Logotipo Digital en Alta Definición --- */
+        /* Logotipo Digital */
         .logo-digital {
             display: flex;
             flex-direction: column;
@@ -67,14 +65,14 @@
         }
 
         .logo-txt-principal {
-            font-size: 3.2rem; /* Grande y llamativo */
+            font-size: 3.2rem;
             font-weight: 900;
-            color: var(--dark-pink); /* Mismo color del eslogan */
+            color: var(--dark-pink);
             letter-spacing: 4px;
             text-transform: uppercase;
             line-height: 1;
             margin: 0;
-            font-family: 'Arial Black', Impact, sans-serif; /* Fuente sólida y nítida */
+            font-family: 'Arial Black', Impact, sans-serif;
             text-shadow: 2px 2px 4px rgba(230, 57, 110, 0.15);
         }
 
@@ -101,7 +99,7 @@
             width: 80%;
         }
 
-        /* --- Ventana Flotante de Momentos --- */
+        /* Ventana Flotante de Momentos */
         .modal {
             display: none; 
             position: fixed;
@@ -173,7 +171,7 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* --- Contenedor Principal del Menú --- */
+        /* Contenedor Principal del Menú */
         .menu-container {
             width: 92%;
             max-width: 550px;
@@ -190,7 +188,6 @@
             margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(230, 57, 110, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: transform 0.2s ease;
         }
 
         .categoria-header {
@@ -202,9 +199,9 @@
             padding-bottom: 10px;
         }
 
-        /* NUEVO: Las letras del menú ahora son de un tono Rosa Claro solicitado */
+        /* CORRECCIÓN: Letras del menú ahora igualan el tono rosa oscuro del Logo */
         .categoria-titulo {
-            color: var(--menu-pink-light);
+            color: var(--dark-pink);
             font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -213,7 +210,7 @@
         }
 
         .decoracion-icono {
-            color: var(--menu-pink-light);
+            color: var(--dark-pink);
             font-size: 1.2rem;
         }
 
@@ -277,6 +274,7 @@
             color: #fff;
         }
 
+        /* CORRECCIÓN: Sistema de Barras Fijas con tamaños idénticos y color unificado */
         .action-bar-container {
             position: fixed;
             bottom: 20px;
@@ -286,13 +284,13 @@
             width: 92%;
             max-width: 520px;
             z-index: 100;
+            box-sizing: border-box;
         }
 
         .btn {
             width: 100%;
-            padding: 14px 20px;
+            height: 50px; /* Forzamos exactamente la misma altura */
             border-radius: 18px;
-            text-align: center;
             text-decoration: none;
             color: white;
             font-weight: 700;
@@ -303,17 +301,11 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.2s ease;
-            box-shadow: 0 6px 20px rgba(230, 57, 110, 0.2);
+            box-shadow: 0 6px 20px rgba(184, 29, 76, 0.25);
             border: none;
             cursor: pointer;
-        }
-
-        .btn-instagram {
-            background: #e6396e;
-        }
-
-        .btn-momentos {
-            background: #b81d4c;
+            box-sizing: border-box;
+            background: var(--dark-pink); /* Mismo color corporativo para ambos */
         }
 
         .btn:active {
@@ -331,18 +323,15 @@
 <body>
 
     <header>
-        <!-- Imagen del Equipo de Trabajo arriba -->
         <div class="equipo-container">
             <img src="Equipo de trabajo .jpg" alt="Nuestro Equipo de Trabajo">
         </div>
         
-        <!-- Logotipo Digital Nítido y Proporcional -->
         <div class="logo-digital">
             <h1 class="logo-txt-principal">Renacer</h1>
             <span class="logo-txt-sub">Drinks & Coffee</span>
         </div>
         
-        <!-- Eslogan corporativo -->
         <p>sabores que mantienen tu energía</p>
     </header>
 
@@ -373,15 +362,13 @@
         </div>
     </div>
 
-    <!-- Contenedor con las Dos Barras de Acciones Fijas Inferiores -->
+    <!-- Ambas barras unificadas en diseño, color y tamaño -->
     <div class="action-bar-container">
-        <!-- Botón Flotante para abrir la ventana de Momentos -->
-        <button class="btn btn-momentos" onclick="openModal('modal-momentos')">
+        <button class="btn" onclick="openModal('modal-momentos')">
             ✨ Ver Nuestros Momentos
         </button>
         
-        <!-- Botón Flotante para ir a Instagram -->
-        <a href="https://instagram.com/renacer.drinks" target="_blank" class="btn btn-instagram">
+        <a href="https://instagram.com/renacer.drinks" target="_blank" class="btn">
             📸 Síguenos en Instagram
         </a>
     </div>
@@ -399,7 +386,7 @@
             }
         }
 
-        // Script de carga dinámica del menú
+        // Script de carga dinámica
         fetch('menu.json')
             .then(response => response.json())
             .then(data => {
