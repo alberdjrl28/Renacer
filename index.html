@@ -12,6 +12,8 @@
             --light-bg: #fff5f7;
             --text-dark: #2d2d2d;
             --text-muted: #666666;
+            /* Nuevo tono Rosa Claro para los títulos del menú */
+            --menu-pink-light: #ff8fa3; 
         }
 
         body {
@@ -42,7 +44,7 @@
         .equipo-container {
             width: 100%;
             max-width: 500px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-radius: 30px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -55,33 +57,51 @@
             object-fit: cover;
         }
 
-        /* Contenedor del Logo debajo de la foto del equipo */
-        .header-logo-container {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 10px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(230, 57, 110, 0.15);
+        /* --- NUEVO: Logotipo Digital en Alta Definición --- */
+        .logo-digital {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
         }
 
-        .header-logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .logo-txt-principal {
+            font-size: 3.2rem; /* Grande y llamativo */
+            font-weight: 900;
+            color: var(--dark-pink); /* Mismo color del eslogan */
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            line-height: 1;
+            margin: 0;
+            font-family: 'Arial Black', Impact, sans-serif; /* Fuente sólida y nítida */
+            text-shadow: 2px 2px 4px rgba(230, 57, 110, 0.15);
+        }
+
+        .logo-txt-sub {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-pink);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            margin-bottom: 15px;
         }
 
         header p {
             font-size: 1.1rem;
             color: var(--dark-pink);
             margin: 0;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             font-weight: 700;
             text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            border-top: 2px solid var(--soft-pink);
+            padding-top: 10px;
+            width: 80%;
         }
 
-        /* --- Ventana Flotante de Momentos (Modal) --- */
+        /* --- Ventana Flotante de Momentos --- */
         .modal {
             display: none; 
             position: fixed;
@@ -157,8 +177,8 @@
         .menu-container {
             width: 92%;
             max-width: 550px;
-            margin-top: 15px;
-            margin-bottom: 160px; /* Más espacio para que no tape las dos barras fijas */
+            margin-top: 25px;
+            margin-bottom: 160px;
         }
 
         .categoria-card {
@@ -182,9 +202,10 @@
             padding-bottom: 10px;
         }
 
+        /* NUEVO: Las letras del menú ahora son de un tono Rosa Claro solicitado */
         .categoria-titulo {
-            color: var(--dark-pink);
-            font-size: 1.3rem;
+            color: var(--menu-pink-light);
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 800;
@@ -192,7 +213,7 @@
         }
 
         .decoracion-icono {
-            color: var(--primary-pink);
+            color: var(--menu-pink-light);
             font-size: 1.2rem;
         }
 
@@ -256,7 +277,6 @@
             color: #fff;
         }
 
-        /* --- NUEVO: Sistema de Barras Flotantes Inferiores Duplicadas --- */
         .action-bar-container {
             position: fixed;
             bottom: 20px;
@@ -302,8 +322,9 @@
 
         @media (max-width: 480px) {
             .equipo-container { max-width: 100%; }
+            .logo-txt-principal { font-size: 2.6rem; }
             .producto-nombre, .producto-precio { font-size: 1.05rem; }
-            header p { font-size: 1rem; }
+            header p { font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -315,9 +336,10 @@
             <img src="Equipo de trabajo .jpg" alt="Nuestro Equipo de Trabajo">
         </div>
         
-        <!-- NUEVO: Tu logo principal integrado abajo de la foto -->
-        <div class="header-logo-container">
-            <img src="Logo.jpg" alt="Renacer Logo">
+        <!-- Logotipo Digital Nítido y Proporcional -->
+        <div class="logo-digital">
+            <h1 class="logo-txt-principal">Renacer</h1>
+            <span class="logo-txt-sub">Drinks & Coffee</span>
         </div>
         
         <!-- Eslogan corporativo -->
@@ -365,7 +387,6 @@
     </div>
 
     <script>
-        // Funciones para abrir y cerrar la ventana flotante de Momentos
         function openModal(id) {
             document.getElementById(id).style.display = 'flex';
         }
@@ -389,7 +410,7 @@
                     let cardHTML = `
                         <div class="categoria-card">
                             <div class="categoria-header">
-                                <span class="decoracion-icono">🌿</span>
+                                <span class="decoracion-icono">🌸</span>
                                 <h2 class="categoria-titulo">${cat.nombre}</h2>
                             </div>
                     `;
