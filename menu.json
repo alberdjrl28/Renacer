@@ -3,9 +3,9 @@
     {
       "nombre": "Especiales",
       "productos": [
-        {"nombre": "Fresa Power", "precio": "3.00", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Add Proteína Extra Por 0.50$"},
-        {"nombre": "Cambur Power", "precio": "3.00", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Add Proteína Extra Por 0.50$"},
-        {"nombre": "Mixto Power", "precio": "3.00", "descripcion": "Fresa, Cambur, Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Add Proteína Extra Por 0.50$"},
+        {"nombre": "Fresa Power", "precio": "3.20", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Add Proteína Extra Por 0.40$"},
+        {"nombre": "Cambur Power", "precio": "3.20", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Add Proteína Extra Por 0.40$"},
+        {"nombre": "Mixto Power", "precio": "3.20", "descripcion": "Fresa, Cambur, Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Add Proteína Extra Por 0.40$"},
         {"nombre": "Choco/Oreo", "precio": "3.20", "descripcion": "Toddy, Oreo, Leche, Hielo, Azúcar, Vainilla"},
         {"nombre": "Tropical Piña/Coco", "precio": "3.20", "descripcion": "Leche Condensada, Leche, Azúcar, Vainilla, Hielo"}
       ]
@@ -49,7 +49,7 @@
     {
       "nombre": "Varios",
       "productos": [
-        {"nombre": "Granola", "precio": "0.80", "descripcion": ""},
+        {"nombre": "Granola", "precio": "1.00", "descripcion": ""},
         {"nombre": "Gatorade", "precio": "2.00", "descripcion": ""},
         {"nombre": "Soda", "precio": "1.50", "descripcion": ""},
         {"nombre": "Agua Saborizada", "precio": "1.20", "descripcion": ""},
