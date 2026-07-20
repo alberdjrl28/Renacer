@@ -3,9 +3,9 @@
     {
       "nombre": "Especiales",
       "productos": [
-        {"nombre": "Fresa Power", "precio": "3.20", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Ideal para Volumen"},
-        {"nombre": "Cambur Power", "precio": "3.20", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Ideal para Volumen"},
-        {"nombre": "Mixto Power", "precio": "3.20", "descripcion": "Fresa, Cambur, Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Ideal para Volumen"},
+        {"nombre": "Fresa Power", "precio": "3.20", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Ideal Post-Entreno"},
+        {"nombre": "Cambur Power", "precio": "3.20", "descripcion": "Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Ideal Post-Entreno"},
+        {"nombre": "Mixto Power", "precio": "3.20", "descripcion": "Fresa, Cambur, Leche, Avena, Azúcar, Mantequilla de Maní, Vainilla, Hielo. Ideal Post-Entreno"},
         {"nombre": "Choco/Oreo", "precio": "3.20", "descripcion": "Toddy, Oreo, Leche, Hielo, Azúcar, Vainilla"},
         {"nombre": "Tropical Piña/Coco", "precio": "3.20", "descripcion": "Leche Condensada, Leche, Azúcar, Vainilla, Hielo"}
       ]
@@ -40,8 +40,8 @@
     {
       "nombre": "El Despertar",
       "productos": [
-        {"nombre": "Expresso Pequeño", "precio": "0.60", "descripcion": "Café Molido, Azúcar"},
-        {"nombre": "Expresso Grande", "precio": "1.00", "descripcion": "Café Molido, Azúcar"},
+        {"nombre": "Espresso Pequeño", "precio": "0.60", "descripcion": "Café Molido, Azúcar"},
+        {"nombre": "Espresso Grande", "precio": "1.00", "descripcion": "Café Molido, Azúcar"},
         {"nombre": "Capuchino", "precio": "1.50", "descripcion": "Café Molido, Leche, Azúcar"},
         {"nombre": "Ice Capuchino", "precio": "2.00", "descripcion": "Leche, Hielo, Café Instantáneo, Azúcar"}
       ]
